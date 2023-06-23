@@ -1,0 +1,42 @@
+<div>
+  <button (click)="getProducto()"> obtener producto</button>
+</div>
+
+
+<div class="container">
+  <div class="bg-secondary-subtle">
+  <h1>Crear Producto</h1>
+  <form>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre" required>
+    </div>
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción:</label>
+      <textarea class="form-control" id="descripcion" [(ngModel)]="descripcion" name="desc" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="imagen" class="form-label">Imagen:</label>
+      <input type="text" class="form-control" id="imagen" [(ngModel)]="imagen" name="img" required>
+    </div>
+    <div class="mb-3">
+      <label for="precio" class="form-label">Precio:</label>
+      <input type="number" class="form-control" id="precio" [(ngModel)]="precio" name="precio" required>
+    </div>
+    <div class="mb-3">
+      <label for="stock" class="form-label">Stock:</label>
+      <input type="number" class="form-control" id="stock" [(ngModel)]="stock" name="stock" required>
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="destacado" [(ngModel)]="destacado" name="destacado">
+      <label class="form-check-label" for="destacado">Destacado</label>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="crearProducto()">Crear</button>
+  </form>
+
+</div>
+</div>
+
+<div>
+  <button (click)="getProducto()"> obtener producto</button>
+</div>
