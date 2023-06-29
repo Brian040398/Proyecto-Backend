@@ -1,0 +1,43 @@
+<div class="container">
+  <h2 class="text-center text-primary">Tabla de todas las transacciones</h2>
+  <div class="row ">
+    <div class="col-md-4" *ngFor="let dato of datos">
+      <table class="table table-primary">
+        <thead>
+          <tr>
+            <th colspan="2">transaccion:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Email</td>
+            <td><textarea class="form-control">{{dato.emailCliente}}</textarea></td>
+          </tr>
+          <tr>
+            <td>cantidad</td>
+            <td><textarea class="form-control">{{dato.cantidadOrigen}}</textarea></td>
+          </tr>
+          <tr>
+            <td>Origen</td>
+            <td><textarea class="form-control">{{dato.monedaOrigen}}</textarea></td>
+          </tr>
+          <tr>
+            <td>Destino</td>
+            <td><textarea class="form-control">{{dato.monedaDestino}}</textarea></td>
+          </tr>
+          <tr>
+            <td>Resultado</td>
+            <td><textarea class="form-control">{{dato.cantidadDestino}}</textarea></td>
+          </tr>
+          <tr>
+            <td>Tasa de conversion</td>
+            <td><textarea class="form-control">{{dato.tasaConversion}}</textarea></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>
+

@@ -4,7 +4,13 @@ const Producto = require('../models/producto.js');
 const productoCtrl = {}
 
 productoCtrl.getProductos = async (req, res) => {
-    var productos = await Producto.find();
+
+    let criteria = {};
+    if ((req.query.destacado != null) && (req.query.destacado != "")){
+        criteria.destacado = req.query.destacado;
+    }
+
+    var productos = await Producto.find(criteria);
     res.json(productos);
 }
 
@@ -66,6 +72,13 @@ productoCtrl.deleteProducto = async (req, res) => {
             'status': '0',
             'msg': 'Error procesando la operacion'
         })
+    }
+
+
+    productoCtrl.getProductoDestacados = async (req, res) => {
+        var criteria = { 'destacado': true };
+        var productos = await Producto.find(criteria);
+        res.json(productos);
     }
 }
 module.exports = productoCtrl;

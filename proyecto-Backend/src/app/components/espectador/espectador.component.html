@@ -1,0 +1,33 @@
+<div class="container bg-secondary-subtle" >
+  <br>
+  <div class="row">
+      <h1 class="col-12 text-center text-decoration-underline" >Espectadores </h1>
+  </div>
+  <br><br>
+
+  <button type="button" (click)="agregarEspectador()" class="btn btn-primary">Agregar Espectador</button>
+  <br><br>
+  <div class="table-responsive">
+      <table class="table table table-bordered table-light table-striped">
+          <thead>
+              <tr class="text-center">
+                  <th scope="col">ID</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">DNI</th>
+                  <th scope="col">Email</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let espe of espectadores">
+                  <th scope="row">{{ espe._id }}</th>
+                  <td>{{ espe.apellido | titlecase}}</td>
+                  <td>{{ espe.nombre | titlecase}} </td>
+                  <td>{{ espe.dni}}</td>
+                  <td>{{ espe.email}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <br><br>
+</div>

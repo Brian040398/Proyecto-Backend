@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background: #d5b4b4;">
+    <div   class="container bg-dark-subtle">
+
+        <div class="row">
+            <header class="col-12 text-center ">
+                <h1>MONEDAS DEL MUNDO!</h1>
+
+            </header>
+        </div>
+
+
+        <div class="row">
+
+
+                <div class="col-md-8 d-none d-sm-block bg-light">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <h4 style="text-align: center ; background: #d5b4b4;"> CONVERSOR DE DIVISAS</h4>
+                            <th scope="col"></th>
+                            <th scope="col"><i class="bi bi-flag "></i>ARS</th>
+                            <th scope="col"><i class="bi bi-flag "></i>USD</th>
+                            <th scope="col"><i class="bi bi-flag "></i>BTC</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row"><i class="bi bi-flag-fill"></i>USD</th>
+                            <td>1.000000</td>
+                            <td>0.000999</td>
+                            <td>0.11296</td>
+
+                          </tr>
+                          <tr>
+                            <th scope="row"><i class="bi bi-flag-fill"></i>ARS</th>
+                            <td>1.000000</td>
+                            <td>0.000999</td>
+                            <td>0.11296</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><i class="bi bi-flag-fill"></i>BTC</th>
+                            <td>1.000000</td>
+                            <td>0.000999</td>
+                            <td>0.11296</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+
+                <aside class="col-md-4 col-sm-12 bg-primary text-bg-danger" >
+                    <form class="row g-3">
+                        <h4 class="bg-primary text-start">Conversor de divisas</h4>
+
+                        <div class="col-12">
+                        <label for="inputAddress" class="form-label">Cantidad</label>
+                          <input [(ngModel)]="conver.cant" name="Cantidad" type="text" class="form-control" id="inputAddress" placeholder="Cantidad">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputState" class="form-label">DE</label>
+                            <select [(ngModel)]="conver.de" name="de" id="inputState" class="form-select">
+
+                              <option>USD</option>
+                              <option>EUR</option>
+                              <option>ARS</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="inputState" class="form-label">A</label>
+                            <select [(ngModel)]="conver.a" name="A" id="inputState" class="form-select">
+                              <option >USD</option>
+                              <option>EUR</option>
+                              <option >ARS</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                          <label for="inputCity" class="form-label"></label>
+                          <textarea disabled class="form-control" id="resultado" rows="1">{{cantidadDestino | number:'0.0-0'}} $</textarea>
+                        </div>
+
+
+                        <div class="col-12 d-grid gap-2 border-bottom bg-warning text-center">
+                          <button (click)="convertir()" type="submit" class="btn btn-warning border-5">Convertir    <i class="bi bi-arrow-right"></i></button>
+                        </div>
+                      </form>
+                </aside>
+
+
+
+        </div>
+
+
+        <div class="container row mb-8">
+          <h1 class="text-primary">Guardar Transaccion</h1>
+          <div class="row">
+            <div class="col-md-8">
+          <form>
+            <div class="form-group">
+              <div class="form-group">
+                <label for="input5">Email</label>
+                <input [(ngModel)]="emailCliente"  name="emailCliente" type="text" class="form-control" id="input5">
+              </div>
+              <label for="input1">Cantidad</label>
+              <textarea [(ngModel)]="cantidadOrigen" type="number"  name="Cantidad"   class="form-control" id="resultado" rows="1">{{cantidadOrigen}} $</textarea>
+            </div>
+            <div class="form-group">
+              <label for="input2">Origen</label>
+              <textarea [(ngModel)]="monedaOrigen" type="text" name="Origen"  class="form-control" id="resultado" rows="1">{{monedaOrigen}} </textarea>
+            </div>
+            <div class="form-group">
+              <label for="input3">Destino</label>
+              <textarea [(ngModel)]="monedaDestino" type="text" name="Destino"  class="form-control" id="resultado" rows="1">{{monedaDestino}} </textarea>
+            </div>
+            <div class="form-group">
+              <label for="input4">Resultado</label>
+              <textarea [(ngModel)]="cantidadDestino" type="number"  name="Resultado"  class="form-control" id="resultado" rows="1">{{cantidadDestino | number:'0.0-0'}} $</textarea>
+            </div>
+            <div class="form-group">
+              <label for="input6">Tasa de conversion</label>
+              <input [(ngModel)]="tasaConversion"  name="tasa" type="number" class="form-control" id="input6">
+            </div>
+            <button (click)="crearTransaccion()" type="submit" class="btn btn-primary">Guardar Transaccion!</button>
+            <div *ngIf="transaccionExitosa" class="alert alert-success" role="alert">
+              ¡Transacción exitosa!
+            </div>
+            <div *ngIf="errorTransaccion" class="alert alert-danger">
+              Error al realizar la transacción. Por favor, inténtalo nuevamente.
+            </div>
+          </form>
+        </div>
+        <div class="col-4">
+          <div class="d-flex justify-content-center">
+            <button (click)="navegarTodo();getTransaccion()" type="button" class="btn btn-primary">Recuperar todos</button>
+            <button (click)="navegarFiltro()" type="button" class="btn btn-primary">Recuperar por filtro</button>
+          </div>
+        </div>
+      </div>
+      <button (click)="getTransaccion()">clic</button>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>

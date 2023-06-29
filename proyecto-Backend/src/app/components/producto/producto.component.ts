@@ -1,4 +1,6 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
 
@@ -15,13 +17,13 @@ export class ProductoComponent  {
   precio!: number;
   stock!: number;
   destacado!: boolean;
+  noDestacado!:boolean;
+  productosDes!: any;
+
+  productos!: Array<Producto>;
+
 
   constructor(private Producto: ProductoService){}
-
-
-
-
-
 
   crearProducto() {
     const producto = {
@@ -53,6 +55,28 @@ export class ProductoComponent  {
       }
     );
   }
+
+  cargarProductosDes(){
+    this.Producto.getProductosDestacado().subscribe(
+      result=>{
+        console.log(result);
+        this.productosDes = Object.values(result);
+        this.destacado = true;
+        if (this.destacado == true){
+          this.noDestacado = false;
+        }
+      },
+      error=>{
+
+      }
+    )
+  }
+
+
+
+
+
+
 
 
 

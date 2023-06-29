@@ -1,0 +1,54 @@
+<div class="container bg-secondary-subtle" >
+  <br>
+  <div class="row">
+      <h1 class="col-12 text-center text-decoration-underline" >Tickets</h1>
+  </div>
+  <br><br>
+  <div class="d-flex mb-3 justify-content-between-fill">
+      <form class="d-flex col-6">
+          <select class="form-select me-2" [(ngModel)]="filtrarCategoria" name="categoriaEspectador"
+              id="categoriaEspectador" placeholder="Ingrese un Categoria">
+              <option value="l">Local</option>
+              <option value="e">Extranjero</option>
+          </select>
+          <button type="button" class="btn btn-info ms-auto col-2" [disabled]="!filtrarCategoria"
+              (click)="filtrarPorCategoria()">Filtrar</button>
+      </form>
+
+  </div>
+  <br><br>
+  <button type="button" (click)="agregarTicket()" class="btn btn-info">Agregar Ticket</button>
+  <br><br>
+  <div class="table-responsive">
+      <table class="table table table-bordered table-light table-striped">
+          <thead>
+              <tr class="text-center">
+                  <th scope="col">ID</th>
+                  <th scope="col">Precio Ticket</th>
+                  <th scope="col">Categoria Espectador</th>
+                  <th scope="col">Fecha Compra</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Espectador</th>
+                  <th scope="col">Opciones</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let tick of tickets">
+                  <th scope="row">{{ tick._id }}</th>
+                  <td>{{ tick.precioTicket | currency:'ARS':'symbol-narrow'}}</td>
+                  <td>{{ tick.categoriaEspectador}} </td>
+                  <td>{{ tick.fechaCompra}}</td>
+                  <td>{{ tick.email}}</td>
+                  <td>Apellido: {{ tick.espectador.apellido }},
+                      Nombre: {{ tick.espectador.nombre }}</td>
+                  <td>
+                      <button class="btn btn-warning" (click)="modificarTicket(tick)">Modificar</button>
+                      <button class="btn btn-danger" (click)="eliminarTicket(tick)">Eliminar</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <br><br>
+</div>
