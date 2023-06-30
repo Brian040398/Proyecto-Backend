@@ -15,6 +15,7 @@ import { TicketComponent } from './components/ticket/ticket.component';
 import { TicketFormComponent } from './components/ticket-form/ticket-form.component';
 import { EspectadorComponent } from './components/espectador/espectador.component';
 import { EspectadorFormComponent } from './components/espectador-form/espectador-form.component';
+import { ProductosFiltroComponent } from './components/productos-filtro/productos-filtro.component';
 
 
 
@@ -30,7 +31,8 @@ import { EspectadorFormComponent } from './components/espectador-form/espectador
     TicketComponent,
     TicketFormComponent,
     EspectadorComponent,
-    EspectadorFormComponent
+    EspectadorFormComponent,
+    ProductosFiltroComponent
 
   ],
   imports: [

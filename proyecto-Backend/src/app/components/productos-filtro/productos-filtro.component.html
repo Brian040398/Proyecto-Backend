@@ -1,0 +1,24 @@
+
+<div class="container">
+  <div class="row">
+    <h1 class="form text-center">Productos Destacados</h1>
+    <div class="col-md-4" *ngFor="let dato of datos">
+      <div class="card mb-3 border border-secondary">
+        <img src="{{dato.imagen}}" class="card-img-top" alt="Imagen de la Card">
+        <div class="card-body bg-light">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <h5 class="card-title border-bottom pb-2">{{dato.nombre}}</h5>
+          <label for="precio" class="form-label">Precio:</label>
+          <h5 class="card-title border-bottom pb-2">$ {{dato.precio}}</h5>
+          <label for="Stock" class="form-label">Stock:</label>
+          <h5 class="card-title border-bottom pb-2">{{dato.stock}}</h5>
+          <label for="Descripcion" class="form-label">Descripcion:</label>
+          <h5 class="card-text">{{dato.descripcion}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button [routerLink]="['/Producto']" class="button bg-primary text-white">Agregar producto</button>
+</div>
+
+

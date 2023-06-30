@@ -1,6 +1,3 @@
-<div>
-  <button (click)="cargarProductosDes()"> obtener producto</button>
-</div>
 
 
 <div class="container">
@@ -32,6 +29,12 @@
       <label class="form-check-label" for="destacado">Destacado</label>
     </div>
     <button type="submit" class="btn btn-primary" (click)="crearProducto()">Crear</button>
+    <div *ngIf="productoExitoso" class="alert alert-success" role="alert">
+      ¡Transacción exitosa!
+    </div>
+    <div *ngIf="errorProducto" class="alert alert-danger">
+      Error al realizar la transacción. Por favor, inténtalo nuevamente.
+    </div>
   </form>
 
 </div>

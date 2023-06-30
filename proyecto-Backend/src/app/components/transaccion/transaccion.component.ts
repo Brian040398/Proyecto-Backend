@@ -16,6 +16,7 @@ export class TransaccionComponent implements OnInit {
 
 
     conver:Transaccion;
+    transacciones!: Array<Transaccion>;
     transaccionExitosa=false;
     errorTransaccion= false;
     monedaOrigen!:string;
@@ -24,6 +25,7 @@ export class TransaccionComponent implements OnInit {
     cantidadDestino!:number;
     emailCliente!:string;
     tasaConversion!:number;
+
 
 
 
@@ -86,6 +88,8 @@ export class TransaccionComponent implements OnInit {
       }
     );
   }
+
+
 
   getTransaccion() {
     this.conversorService.getTransaccion().subscribe(

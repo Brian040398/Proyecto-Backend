@@ -12,9 +12,9 @@ export class TransaccionService {
   getConversor(value:string, type:string, to:string): Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({
-        //'content-type': 'application/x-www-form-urlencoded',
-        //'X-RapidAPI-Key': '109aa8ac7dmshc2d9f5b4044ea66p168a6ejsnd0b01e40511d',
-        //'X-RapidAPI-Host': 'community-neutrino-currency-conversion.p.rapidapi.com'
+        'content-type': 'application/x-www-form-urlencoded',
+        'X-RapidAPI-Key': '109aa8ac7dmshc2d9f5b4044ea66p168a6ejsnd0b01e40511d',
+        'X-RapidAPI-Host': 'community-neutrino-currency-conversion.p.rapidapi.com'
       })
     };
     const body = new HttpParams()
@@ -23,6 +23,21 @@ export class TransaccionService {
     .set('to-type', to);
     return this.http.post("https://community-neutrino-currency-conversion.p.rapidapi.com/convert", body , httpOptions  );
   }
+
+  getFiltro(monedaOrigen: string, monedaDestino: string): Observable<any> {
+    let httpOption = {
+      headers: new HttpHeaders({
+
+      }),
+      params: new HttpParams()//.append("estado",true)
+        .set('monedaOrigen', monedaOrigen)
+        .set('monedaDestino', monedaDestino),
+    }
+    return this.http.get("http://localhost:3000/api/" + "transaccion/filtro/" + monedaOrigen + '/' + monedaDestino, httpOption);
+  }
+
+
+
 
 
   createTransaccion(agenteData: any) {

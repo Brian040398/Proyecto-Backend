@@ -19,6 +19,8 @@ export class ProductoComponent  {
   destacado!: boolean;
   noDestacado!:boolean;
   productosDes!: any;
+  productoExitoso=false;
+  errorProducto=false;
 
   productos!: Array<Producto>;
 
@@ -38,9 +40,11 @@ export class ProductoComponent  {
     this.Producto.createProducto(producto).subscribe(
       (data) => {
         console.log(data);
+        this.productoExitoso=true;
       },
       (error) => {
         console.error(error);
+        this.errorProducto=true;
       }
     );
   }

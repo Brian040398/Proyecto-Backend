@@ -14,7 +14,7 @@ export class TicketFormComponent implements OnInit {
 
   ticket!: Ticket;
   accion: string = "new" // accion tendra los valores de new o update
-  espectadoress!: Array<Espectador>;
+  espectadores!: Array<Espectador>;
   precioCobrado!: number;
   opcionSeleccionada!: string;
 
@@ -23,7 +23,7 @@ export class TicketFormComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute) {
     this.ticket = new Ticket();
-    this.espectadoress = new Array<Espectador>();
+    this.espectadores = new Array<Espectador>();
     const fecha = new Date();
     this.ticket.fechaCompra = fecha.toLocaleDateString();
   }
@@ -45,7 +45,7 @@ export class TicketFormComponent implements OnInit {
       result => {
         Object.assign(this.ticket, result);
         //añadir los valores en una lista despleglable
-        this.ticket.espectador = this.espectadoress.find(item => (item._id == this.ticket.espectador._id))!;
+        this.ticket.espectador = this.espectadores.find(item => (item._id == this.ticket.espectador._id))!;
         console.log(result);
       },
       error => {
@@ -60,7 +60,7 @@ export class TicketFormComponent implements OnInit {
         let unEspectador = new Espectador();
         result.forEach((element: any) => {
           Object.assign(unEspectador, element)
-          this.espectadoress.push(unEspectador)
+          this.espectadores.push(unEspectador)
           unEspectador = new Espectador();
         });
         console.log(result);

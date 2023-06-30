@@ -104,19 +104,19 @@
                 <input [(ngModel)]="emailCliente"  name="emailCliente" type="text" class="form-control" id="input5">
               </div>
               <label for="input1">Cantidad</label>
-              <textarea [(ngModel)]="cantidadOrigen" type="number"  name="Cantidad"   class="form-control" id="resultado" rows="1">{{cantidadOrigen}} $</textarea>
+              <textarea [(ngModel)]="cantidadOrigen" type="number"  name="Cantidad" disabled   class="form-control" id="resultado" rows="1">{{cantidadOrigen}} $</textarea>
             </div>
             <div class="form-group">
               <label for="input2">Origen</label>
-              <textarea [(ngModel)]="monedaOrigen" type="text" name="Origen"  class="form-control" id="resultado" rows="1">{{monedaOrigen}} </textarea>
+              <textarea [(ngModel)]="monedaOrigen" type="text" name="Origen" disabled class="form-control" id="resultado" rows="1">{{monedaOrigen}} </textarea>
             </div>
             <div class="form-group">
               <label for="input3">Destino</label>
-              <textarea [(ngModel)]="monedaDestino" type="text" name="Destino"  class="form-control" id="resultado" rows="1">{{monedaDestino}} </textarea>
+              <textarea [(ngModel)]="monedaDestino" type="text" name="Destino" disabled class="form-control" id="resultado" rows="1">{{monedaDestino}} </textarea>
             </div>
             <div class="form-group">
               <label for="input4">Resultado</label>
-              <textarea [(ngModel)]="cantidadDestino" type="number"  name="Resultado"  class="form-control" id="resultado" rows="1">{{cantidadDestino | number:'0.0-0'}} $</textarea>
+              <textarea [(ngModel)]="cantidadDestino" type="number"  name="Resultado" disabled class="form-control" id="resultado" rows="1">{{cantidadDestino | number:'0.0-0'}} $</textarea>
             </div>
             <div class="form-group">
               <label for="input6">Tasa de conversion</label>
@@ -130,6 +130,7 @@
               Error al realizar la transacción. Por favor, inténtalo nuevamente.
             </div>
           </form>
+
         </div>
         <div class="col-4">
           <div class="d-flex justify-content-center">

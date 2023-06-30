@@ -11,13 +11,13 @@
               <option value="l">Local</option>
               <option value="e">Extranjero</option>
           </select>
-          <button type="button" class="btn btn-info ms-auto col-2" [disabled]="!filtrarCategoria"
+          <button type="button" class="btn btn-primary ms-auto col-2"
               (click)="filtrarPorCategoria()">Filtrar</button>
       </form>
 
   </div>
   <br><br>
-  <button type="button" (click)="agregarTicket()" class="btn btn-info">Agregar Ticket</button>
+  <button type="button" (click)="agregarTicket()" class="btn btn-primary">Agregar Ticket</button>
   <br><br>
   <div class="table-responsive">
       <table class="table table table-bordered table-light table-striped">
@@ -25,7 +25,7 @@
               <tr class="text-center">
                   <th scope="col">ID</th>
                   <th scope="col">Precio Ticket</th>
-                  <th scope="col">Categoria Espectador</th>
+                  <th scope="col">Categoria Espectador (l=Local, e(Extranjero))</th>
                   <th scope="col">Fecha Compra</th>
                   <th scope="col">Email</th>
                   <th scope="col">Espectador</th>
@@ -35,7 +35,7 @@
           <tbody>
               <tr *ngFor="let tick of tickets">
                   <th scope="row">{{ tick._id }}</th>
-                  <td>{{ tick.precioTicket | currency:'ARS':'symbol-narrow'}}</td>
+                  <td>{{ tick.precioTicket }}</td>
                   <td>{{ tick.categoriaEspectador}} </td>
                   <td>{{ tick.fechaCompra}}</td>
                   <td>{{ tick.email}}</td>
