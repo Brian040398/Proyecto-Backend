@@ -48,12 +48,7 @@
                           {{espectador.apellido}}
                       </option>
                   </select>
-                  <div *ngIf="espectador.invalid && (espectador.dirty || espectador.touched)"
-                      class="alert alert-danger">
-                      <div *ngIf="espectador.errors?.['required']">
-                          Seleccione un espectador es requerido.
-                      </div>
-                  </div>
+                  
               </div>
 
               <div class="caja mb-3" *ngIf="ticket.precioTicket && ticket.categoriaEspectador" required>
